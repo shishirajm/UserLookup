@@ -25,10 +25,11 @@ namespace UserLookup.Console
 
         public async Task HandleUserInteraction()
         {
-            try
+            
+            bool flag = true;
+            while (flag)
             {
-                bool flag = true;
-                while (flag)
+                try
                 {
                     var action = _uiHandler.GetUserAction();
                     if (action == 0) flag = false;
@@ -37,11 +38,12 @@ namespace UserLookup.Console
                     else if (action == 3) await GetUserCountByAgeAndGender();
                     else _uiHandler.DisplayOnUi("Invalid input try again!");
                 }
+                catch
+                {
+                    _uiHandler.DisplayOnUi("Something went wrong!");
+                }
             }
-            catch
-            {
-                _uiHandler.DisplayOnUi("Something went wrong!");
-            }
+            
         }
 
         private async Task GetUserCountByAgeAndGender()

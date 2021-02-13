@@ -35,7 +35,7 @@ namespace UserLookup.Infrastructure.DataProvider
 
                 if (response.IsSuccessStatusCode)
                 {
-                    payload = getMockPayLoad(); //await response.Content.ReadAsStringAsync();
+                    payload = await response.Content.ReadAsStringAsync(); // getMockPayLoad(); 
                 }
 
                 return JsonConvert.DeserializeObject<T>(payload);
