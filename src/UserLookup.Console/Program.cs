@@ -1,6 +1,4 @@
 ﻿using System.Threading.Tasks;
-using UserLookup.Domain.Model;
-using UserLookup.Infrastructure;
 
 namespace UserLookup.Console
 {

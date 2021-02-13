@@ -3,8 +3,9 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using UserLookup.Domain.Common;
+using UserLookup.Domain.Dto;
 
-namespace UserLookup.Domain.Model
+namespace UserLookup.Domain.Users
 {
     public class UserModel : IUserModel
     {
@@ -27,12 +28,21 @@ namespace UserLookup.Domain.Model
             return fullName;
         }
 
-        public Task<string> GetGendersByAge()
+        public async Task<List<string>> GetUserNamesByAge(int age)
         {
-            throw new NotImplementedException();
+            var userNames = new List<string>();
+            var users = await _userRepository.GetUsers();
+            var usersFiltered = users.Where(x => x.Age == age);
+
+            foreach (var user in usersFiltered)
+            {
+                userNames.Add($"{user.FirstName} {user.LastName}");
+            }
+
+            return userNames;
         }
 
-        public Task<List<string>> GetUsersByAge(int age)
+        public Task<List<AgeGenderDto>> GetGenderCountByAge()
         {
             throw new NotImplementedException();
         }

@@ -11,6 +11,6 @@
     <PackageReference Include="System.Text.Json" Version="5.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UserLookup.Logic\UserLookup.Domain.csproj" />
+    <ProjectReference Include="..\UserLookup.Domain\UserLookup.Domain.csproj" />
   </ItemGroup>
 </Project>

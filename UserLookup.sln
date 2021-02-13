@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{03F7BDBF-AD6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{26A391A8-3A28-4AB2-804B-FD1CE26419A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLookup.Domain", "src\UserLookup.Logic\UserLookup.Domain.csproj", "{EAE36C70-772A-4F8E-BE62-9EE6413EB3E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLookup.Domain", "src\UserLookup.Domain\UserLookup.Domain.csproj", "{EAE36C70-772A-4F8E-BE62-9EE6413EB3E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLookup.Infrastructure", "src\UserLookup.Repository\UserLookup.Infrastructure.csproj", "{61CE5580-E7ED-4931-B4DF-CD5C3E679BC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLookup.Infrastructure", "src\UserLookup.Infrastructure\UserLookup.Infrastructure.csproj", "{61CE5580-E7ED-4931-B4DF-CD5C3E679BC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

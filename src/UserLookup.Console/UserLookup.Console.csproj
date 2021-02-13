@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UserLookup.Logic\UserLookup.Logic.csproj" />
-    <ProjectReference Include="..\UserLookup.Repository\UserLookup.Infrastructure.csproj" />
+    <ProjectReference Include="..\UserLookup.Domain\UserLookup.Domain.csproj" />
+    <ProjectReference Include="..\UserLookup.Infrastructure\UserLookup.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

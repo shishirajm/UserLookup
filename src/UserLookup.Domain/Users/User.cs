@@ -1,4 +1,6 @@
-﻿namespace UserLookup.Domain.Common
+﻿using UserLookup.Domain.Common;
+
+namespace UserLookup.Domain.Users
 {
     public class User : Entity
     {

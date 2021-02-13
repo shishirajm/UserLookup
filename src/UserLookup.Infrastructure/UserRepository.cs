@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using UserLookup.Domain.Common;
+using UserLookup.Domain.Users;
 
 namespace UserLookup.Infrastructure
 {
@@ -10,7 +11,10 @@ namespace UserLookup.Infrastructure
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            IEnumerable<User> asd =  new List<User> { new User(1, "Scott", "Allan", 30, 'M') };
+            IEnumerable<User> asd =  new List<User> {
+                new User(1, "Scott", "Allan", 30, 'M'),
+                new User(2, "Peat", "Allan", 30, 'M')
+            };
             return asd;
 
             //using (IDataProvider provider = DataProviderFactory.GetProvider("HTTP"))

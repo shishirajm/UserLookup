@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
-using UserLookup.Domain.Model;
+using UserLookup.Domain.Users;
 using UserLookup.Infrastructure;
 
 namespace UserLookup.Console
 {
     public class UserContoller
     {
-        private readonly UserModel _userModel;
-        private readonly UiHandler _uiHandler;
+        private readonly IUserModel _userModel;
+        private readonly IUiHandler _uiHandler;
 
         public UserContoller()
         {
@@ -16,8 +16,9 @@ namespace UserLookup.Console
             _uiHandler = new UiHandler();
         }
 
-        public UserContoller(UserModel userModel, UiHandler uiHandler)
+        public UserContoller(IUserModel userModel, IUiHandler uiHandler)
         {
+            // For constructor injection during unit testing
             _userModel = userModel;
             _uiHandler = uiHandler;
         }
@@ -34,6 +35,7 @@ namespace UserLookup.Console
                     else if (action == 1) await GetUserById();
                     else if (action == 2) GetUserNamesByAge();
                     else if (action == 3) GetUserCountByAgeAndGender();
+                    else _uiHandler.displayonUi("Invalid input try again!");
                 }
             }
             catch

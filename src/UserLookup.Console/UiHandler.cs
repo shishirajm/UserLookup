@@ -1,5 +1,5 @@
 ﻿using System;
-using UserLookup.Domain.Model;
+using UserLookup.Domain.Users;
 using UserLookup.Infrastructure;
 
 namespace UserLookup.Console
@@ -8,6 +8,7 @@ namespace UserLookup.Console
     {
         int GetUserAction();
         long GetUserId();
+        void displayonUi(string display);
     }
 
     public class UiHandler : IUiHandler
