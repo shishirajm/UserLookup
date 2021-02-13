@@ -13,7 +13,9 @@ namespace UserLookup.Infrastructure
         {
             IEnumerable<User> asd =  new List<User> {
                 new User(1, "Scott", "Allan", 30, 'M'),
-                new User(2, "Peat", "Allan", 30, 'M')
+                new User(2, "Peat", "Allan", 30, 'M'),
+                new User(3, "Kate", "Allan", 30, 'F'),
+                new User(4, "Sweet", "Allan", 20, 'M')
             };
             return asd;
 

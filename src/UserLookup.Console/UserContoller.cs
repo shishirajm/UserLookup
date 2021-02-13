@@ -33,25 +33,35 @@ namespace UserLookup.Console
                     var action = _uiHandler.GetUserAction();
                     if (action == 0) flag = false;
                     else if (action == 1) await GetUserById();
-                    else if (action == 2) GetUserNamesByAge();
-                    else if (action == 3) GetUserCountByAgeAndGender();
-                    else _uiHandler.displayonUi("Invalid input try again!");
+                    else if (action == 2) await GetUserNamesByAge();
+                    else if (action == 3) await GetUserCountByAgeAndGender();
+                    else _uiHandler.DisplayonUi("Invalid input try again!");
                 }
             }
             catch
             {
-
+                _uiHandler.DisplayonUi("Something went wrong!");
             }
         }
 
-        private void GetUserCountByAgeAndGender()
+        private async Task GetUserCountByAgeAndGender()
         {
-            throw new NotImplementedException();
+            var ageGenderCounts = await _userModel.GetGenderCountByAge();
+
+            foreach (var ageGender in ageGenderCounts)
+            {
+                _uiHandler.DisplayonUi($"Age: {ageGender.Age} Female: {ageGender.Female} Male: {ageGender.Male}");
+            }
         }
 
-        private void GetUserNamesByAge()
+        private async Task GetUserNamesByAge()
         {
-            throw new NotImplementedException();
+            var age = _uiHandler.GetAgeToQuery();
+            var names = await _userModel.GetUserNamesByAge(age);
+            if (names.Count == 0)
+                _uiHandler.DisplayonUi($"No users for given age: {age}");
+            else
+                _uiHandler.DisplayonUi(string.Join(",", names));
         }
 
         private async Task GetUserById()
@@ -63,17 +73,17 @@ namespace UserLookup.Console
 
                 if (userName == string.Empty)
                 {
-                    _uiHandler.displayonUi($"No User Id found for given id.");
+                    _uiHandler.DisplayonUi($"No User Id found for given id.");
                 }
                 else
                 {
-                    _uiHandler.displayonUi($"User name for Id {id} is {userName}");
+                    _uiHandler.DisplayonUi($"{userName}");
                 }
                 
             }
             catch (Exception ex)
             {
-                _uiHandler.displayonUi(ex.Message);
+                _uiHandler.DisplayonUi(ex.Message);
             }
 
         }

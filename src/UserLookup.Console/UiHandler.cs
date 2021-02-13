@@ -8,7 +8,8 @@ namespace UserLookup.Console
     {
         int GetUserAction();
         long GetUserId();
-        void displayonUi(string display);
+        int GetAgeToQuery();
+        void DisplayonUi(string display);
     }
 
     public class UiHandler : IUiHandler
@@ -45,10 +46,26 @@ namespace UserLookup.Console
                 return selectedId;
             }
 
-            throw new Exception("Id should be a valid number:");
+            throw new Exception("Id should be a valid number.");
         }
 
-        public void displayonUi(string display)
+        public int GetAgeToQuery()
+        {
+            System.Console.WriteLine("Enter the User Age to fetch names: ");
+            var inputAge = System.Console.ReadLine();
+            int selectedAge;
+            if (int.TryParse(inputAge, out selectedAge))
+            {
+                if (selectedAge >= 1 && selectedAge <= 150)
+                    return selectedAge;
+                else
+                    throw new Exception("Age should be a valid number:");
+            }
+
+            throw new Exception("Age should be a valid number.");
+        }
+
+        public void DisplayonUi(string display)
         {
             System.Console.WriteLine(display);
         }
