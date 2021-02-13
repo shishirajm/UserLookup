@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using UserLookup.Repository.Entities;
-using UserLookup.Repository.DataProvider;
 using System.Threading.Tasks;
+using UserLookup.Domain.Common;
 
-namespace UserLookup.Repository
+namespace UserLookup.Infrastructure
 {
-    public class UserRepository: Repository<User>
+    public class UserRepository: Repository<User>, IUserRepository
     {
         public UserRepository() { }
 

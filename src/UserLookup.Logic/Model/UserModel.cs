@@ -2,25 +2,17 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using UserLookup.Repository.Entities;
-using UserLookup.Repository;
+using UserLookup.Domain.Common;
 
-namespace UserLookup.Logic
+namespace UserLookup.Domain.Model
 {
-    public interface IUserLookup
+    public class UserModel : IUserModel
     {
-        Task<string> GetUserById(long id);
-        Task<List<string>> GetUsersByAge(int age);
-        Task<string> GetGendersByAge();
-    }
-
-    public class UserLookup : IUserLookup
-    {
-        private readonly UserRepository _userRepository;
-        public UserLookup(UserRepository userRepository) => _userRepository = userRepository;
+        private readonly IUserRepository _userRepository;
+        public UserModel(IUserRepository userRepository) => _userRepository = userRepository;
 
 
-        public async Task<string> GetUserById(long id)
+        public async Task<string> GetUserFullNameById(long id)
         {
             var fullName = "";
             var users = await _userRepository.GetUsers();

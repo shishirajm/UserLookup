@@ -1,5 +1,4 @@
-﻿using System;
-namespace UserLookup.Repository.Entities
+﻿namespace UserLookup.Domain.Common
 {
     public abstract class Entity
     {

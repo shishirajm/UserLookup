@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UserLookup.Repository.DataProvider
+namespace UserLookup.Infrastructure.DataProvider
 {
     public static class DataProviderFactory
     {

@@ -1,4 +1,4 @@
-﻿namespace UserLookup.Repository.Entities
+﻿namespace UserLookup.Domain.Common
 {
     public class User : Entity
     {

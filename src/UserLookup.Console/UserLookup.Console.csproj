@@ -7,6 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UserLookup.Logic\UserLookup.Logic.csproj" />
-    <ProjectReference Include="..\UserLookup.Repository\UserLookup.Repository.csproj" />
+    <ProjectReference Include="..\UserLookup.Repository\UserLookup.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

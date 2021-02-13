@@ -1,7 +1,7 @@
 ﻿using System;
-using UserLookup.Repository.DataProvider;
+using UserLookup.Infrastructure.DataProvider;
 
-namespace UserLookup.Repository
+namespace UserLookup.Infrastructure
 {
     public abstract class Repository<T>
     {

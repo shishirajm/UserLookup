@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace UserLookup.Repository.DataProvider
+namespace UserLookup.Infrastructure.DataProvider
 {
     public interface IDataProvider : IDisposable
     {

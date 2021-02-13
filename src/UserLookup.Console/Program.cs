@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
-using UserLookup.Repository;
+using UserLookup.Domain.Model;
+using UserLookup.Infrastructure;
 
-namespace UserLookup
+namespace UserLookup.Console
 {
     class Program
     {
@@ -12,9 +13,9 @@ namespace UserLookup
 
         private static async Task MainAsync()
         {
-            var userLookup = new Logic.UserLookup(new UserRepository());
-            var fullName = await userLookup.GetUserById(1);
-            System.Console.WriteLine($"{fullName}");
+            var userController = new UserContoller();
+            await userController.HandleUserInteraction();
+            System.Console.WriteLine($"Exiting the Application. Thank you.");
         }
     }
 }

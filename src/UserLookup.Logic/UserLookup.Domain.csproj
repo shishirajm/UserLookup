@@ -6,9 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Entities\" />
-    <Folder Include="DataProvider\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="5.0.1" />
+    <Folder Include="Common\" />
+    <Folder Include="Model\" />
   </ItemGroup>
 </Project>
