@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Threading.Tasks;
+using UserLookup.Repository;
 
 namespace UserLookup
 {
@@ -6,7 +7,14 @@ namespace UserLookup
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            MainAsync().GetAwaiter().GetResult();
+        }
+
+        private static async Task MainAsync()
+        {
+            var userLookup = new Logic.UserLookup(new UserRepository());
+            var fullName = await userLookup.GetUserById(1);
+            System.Console.WriteLine($"{fullName}");
         }
     }
 }

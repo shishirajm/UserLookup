@@ -4,4 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UserLookup.Repository\UserLookup.Repository.csproj" />
+  </ItemGroup>
 </Project>
