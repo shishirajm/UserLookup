@@ -35,12 +35,12 @@ namespace UserLookup.Console
                     else if (action == 1) await GetUserById();
                     else if (action == 2) await GetUserNamesByAge();
                     else if (action == 3) await GetUserCountByAgeAndGender();
-                    else _uiHandler.DisplayonUi("Invalid input try again!");
+                    else _uiHandler.DisplayOnUi("Invalid input try again!");
                 }
             }
             catch
             {
-                _uiHandler.DisplayonUi("Something went wrong!");
+                _uiHandler.DisplayOnUi("Something went wrong!");
             }
         }
 
@@ -50,7 +50,7 @@ namespace UserLookup.Console
 
             foreach (var ageGender in ageGenderCounts)
             {
-                _uiHandler.DisplayonUi($"Age: {ageGender.Age} Female: {ageGender.Female} Male: {ageGender.Male}");
+                _uiHandler.DisplayOnUi($"Age: {ageGender.Age} Female: {ageGender.Female} Male: {ageGender.Male}");
             }
         }
 
@@ -59,9 +59,9 @@ namespace UserLookup.Console
             var age = _uiHandler.GetAgeToQuery();
             var names = await _userModel.GetUserNamesByAge(age);
             if (names.Count == 0)
-                _uiHandler.DisplayonUi($"No users for given age: {age}");
+                _uiHandler.DisplayOnUi($"No users for given age: {age}");
             else
-                _uiHandler.DisplayonUi(string.Join(",", names));
+                _uiHandler.DisplayOnUi(string.Join(",", names));
         }
 
         private async Task GetUserById()
@@ -73,17 +73,17 @@ namespace UserLookup.Console
 
                 if (userName == string.Empty)
                 {
-                    _uiHandler.DisplayonUi($"No User Id found for given id.");
+                    _uiHandler.DisplayOnUi($"No User Id found for given id.");
                 }
                 else
                 {
-                    _uiHandler.DisplayonUi($"{userName}");
+                    _uiHandler.DisplayOnUi($"{userName}");
                 }
                 
             }
             catch (Exception ex)
             {
-                _uiHandler.DisplayonUi(ex.Message);
+                _uiHandler.DisplayOnUi(ex.Message);
             }
 
         }

@@ -9,7 +9,7 @@ namespace UserLookup.Console
         int GetUserAction();
         long GetUserId();
         int GetAgeToQuery();
-        void DisplayonUi(string display);
+        void DisplayOnUi(string display);
     }
 
     public class UiHandler : IUiHandler
@@ -65,7 +65,7 @@ namespace UserLookup.Console
             throw new Exception("Age should be a valid number.");
         }
 
-        public void DisplayonUi(string display)
+        public void DisplayOnUi(string display)
         {
             System.Console.WriteLine(display);
         }
