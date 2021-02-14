@@ -6,7 +6,7 @@ using UserLookup.Domain.Users;
 using UserLookup.Infrastructure.DataProvider;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace UserLookup.Infrastructure
+namespace UserLookup.Infrastructure.Repository
 {
     public class UserRepository: Repository<User>, IUserRepository
     {

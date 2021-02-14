@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using UserLookup.Domain.Users;
-using UserLookup.Infrastructure;
+using UserLookup.Infrastructure.Repository;
 
 namespace UserLookup.Console
 {

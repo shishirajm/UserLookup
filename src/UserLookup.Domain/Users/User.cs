@@ -2,7 +2,7 @@
 
 namespace UserLookup.Domain.Users
 {
-    public class User : Entity
+    public class User : AggregateRoot
     {
         public User(long id, string firstName, string lastName, int age, char gender)
         {
