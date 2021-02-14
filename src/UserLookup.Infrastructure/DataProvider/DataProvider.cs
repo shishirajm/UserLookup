@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using UserLookup.Infrastructure.Configurations;
 
 namespace UserLookup.Infrastructure.DataProvider
 {
@@ -30,7 +31,7 @@ namespace UserLookup.Infrastructure.DataProvider
         {
             try
             {
-                var response = await _client.GetAsync("https://f43qgubfhf.execute-api.ap-southeast-2.amazonaws.com/sampletest");
+                var response = await _client.GetAsync(Constants.Uri);
                 string payload = string.Empty;
 
                 if (response.IsSuccessStatusCode)
@@ -44,11 +45,6 @@ namespace UserLookup.Infrastructure.DataProvider
             {
                 throw ex;
             }
-        }
-
-        private string getMockPayLoad()
-        {
-            return "[{ \"id\": 53, \"first\": \"Bill\", \"last\": \"Bryson\", \"age\":23, \"gender\":\"M\" },{ \"id\": 62, \"first\": \"John\", \"last\": \"Travolta\", \"age\":54, \"gender\":\"M\" },{ \"id\": 41, \"first\": \"Frank\", \"last\": \"Zappa\", \"age\":23, \"gender\":\"T\" },{ \"id\": 31, \"first\": \"Jill\", \"last\": \"Scott\", \"age\":66, \"gender\":\"Y\" },{ \"id\": 31, \"first\": \"Anna\", \"last\": \"Meredith\", \"age\":66, \"gender\":\"Y\" },{ \"id\": 31, \"first\": \"Janet\", \"last\": \"Jackson\", \"age\":66, \"gender\":\"F\" }]";
         }
     }
 }

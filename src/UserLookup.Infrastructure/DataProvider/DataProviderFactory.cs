@@ -6,6 +6,7 @@ namespace UserLookup.Infrastructure.DataProvider
     {
         public static IDataProvider GetProvider(string type)
         {
+            // We can add more data source providers
             if (type.ToUpper() == "HTTP")
             {
                 return new HttpDataProvider();

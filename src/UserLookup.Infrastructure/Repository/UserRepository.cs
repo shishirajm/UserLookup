@@ -5,13 +5,13 @@ using UserLookup.Domain.Common;
 using UserLookup.Domain.Users;
 using UserLookup.Infrastructure.DataProvider;
 using Microsoft.Extensions.Caching.Memory;
+using UserLookup.Infrastructure.Configurations;
 
 namespace UserLookup.Infrastructure.Repository
 {
     public class UserRepository: Repository<User>, IUserRepository
     {
         private readonly IMemoryCache _cache;
-        const string CacheKey = "UserPayload";
 
         public UserRepository()
         {
@@ -44,7 +44,7 @@ namespace UserLookup.Infrastructure.Repository
 
         private (bool, IEnumerable<User>) GetUsersFromCache()
         {
-            if (_cache.TryGetValue(CacheKey, out IEnumerable<User> users))
+            if (_cache.TryGetValue(Constants.CacheKey, out IEnumerable<User> users))
             {
                 return (true, users);
             }
@@ -55,8 +55,8 @@ namespace UserLookup.Infrastructure.Repository
         // For now implemented the in memory caching and for 5 minutes, but based on requirements this can be modified
         private void CacheUsers(IEnumerable<User> users)
         {
-            var cacheEntryOptions = new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
-            _cache.Set(CacheKey, users, cacheEntryOptions);
+            var cacheEntryOptions = new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(Constants.MinutesToCache));
+            _cache.Set(Constants.CacheKey, users, cacheEntryOptions);
         }
 
         // Models of User and ApiUuser are kept separate as Domain user can have multiple data source
