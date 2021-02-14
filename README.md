@@ -10,7 +10,7 @@ Use the Windows or Mac with dotnet core 5.0 installed: https://dotnet.microsoft.
 ## Decisions:
 ### Assumptions
 * Current payload structure of repeated Id is valid.
-* User with Gender which is not M or F, are considered valid.
+* All Gender values are considered valid.
 
 ### Coding decisions
 * Though Ids are repeated (which is usually not the case) in JSON, nothing is discarded. Search by Id returns the first one.
