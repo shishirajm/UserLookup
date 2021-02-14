@@ -38,9 +38,9 @@ namespace UserLookup.Console
                     else if (action == 3) await GetUserCountByAgeAndGender();
                     else _uiHandler.DisplayOnUi("Invalid input try again!");
                 }
-                catch
+                catch (Exception ex)
                 {
-                    _uiHandler.DisplayOnUi("Sorry, Something went wrong!");
+                    _uiHandler.DisplayOnUi($"Sorry, Something went wrong! {ex.Message}");
                 }
             }
             

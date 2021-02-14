@@ -54,10 +54,10 @@ namespace UserLookup.Console
             int selectedAge;
             if (int.TryParse(inputAge, out selectedAge))
             {
-                if (selectedAge >= 1 && selectedAge <= 150)
+                if (selectedAge >= 0 && selectedAge <= 150)
                     return selectedAge;
                 else
-                    throw new Exception("Age should be a valid number:");
+                    throw new Exception("Age should be a valid number between 0 and 150 inclusive.");
             }
 
             throw new Exception("Age should be a valid number.");
