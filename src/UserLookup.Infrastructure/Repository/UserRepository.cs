@@ -75,7 +75,7 @@ namespace UserLookup.Infrastructure.Repository
 
         private class ApiUser
         {
-            public long Id { get; protected set; }
+            public long Id { get; set; }
 
             public string First { get; set; }
 
