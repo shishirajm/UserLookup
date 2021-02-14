@@ -40,7 +40,7 @@ namespace UserLookup.Console
                 }
                 catch
                 {
-                    _uiHandler.DisplayOnUi("Something went wrong!");
+                    _uiHandler.DisplayOnUi("Sorry, Something went wrong!");
                 }
             }
             
@@ -61,7 +61,7 @@ namespace UserLookup.Console
             var age = _uiHandler.GetAgeToQuery();
             var names = await _userModel.GetUserNamesByAge(age);
             if (names.Count == 0)
-                _uiHandler.DisplayOnUi($"No users for given age: {age}");
+                _uiHandler.DisplayOnUi($"No users found for given age: {age}");
             else
                 _uiHandler.DisplayOnUi(string.Join(",", names));
         }
@@ -75,7 +75,7 @@ namespace UserLookup.Console
 
                 if (userName == string.Empty)
                 {
-                    _uiHandler.DisplayOnUi($"No User Id found for given id.");
+                    _uiHandler.DisplayOnUi($"No User name found for given id: {id}.");
                 }
                 else
                 {

@@ -29,8 +29,6 @@ namespace UserLookup.Console
             {
                 if (selectedAction >= 0 && selectedAction <= 3)
                     return selectedAction;
-                else
-                    DisplayOnUi("Invalid input try again!");
             }
 
             return -1;
