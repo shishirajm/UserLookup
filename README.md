@@ -1,11 +1,12 @@
 ## How to run the app?
 ### Prerequisite
-Use the Windows or Mac with dotnet core 5.0 installed: https://dotnet.microsoft.com/download
+Use the Windows or Mac with dotnet 5.0 installed: https://dotnet.microsoft.com/download
 
 ### Download and Run
 * Clone the repository: `git clone git@github.com:shishirajm/UserLookup.git`
 * Navigate to UserLookup: `cd UserLookup`
-* Run the Console Project: `dotnet run -p ./src/UserLookup.Console`
+* Run dotnet test: `dotnet test`
+* Run the Console Project and follow prompts: `dotnet run -p ./src/UserLookup.Console`
 
 ## Decisions:
 ### Assumptions
@@ -18,3 +19,4 @@ Use the Windows or Mac with dotnet core 5.0 installed: https://dotnet.microsoft.
 * Caching implementation is fundamental, and it caches the whole API response. Based on how things would grow, the caching can be tuned.
 * For Console display haven't spent much time. It might feel basic.
 * More validations can be added after the API records are read.
+* There is a scope for adding hundreds of unit tests. In the interest of time, its skipped. Added a few sample tests.
