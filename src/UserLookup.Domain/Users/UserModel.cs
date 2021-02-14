@@ -44,6 +44,8 @@ namespace UserLookup.Domain.Users
 
         public async Task<List<AgeGenderDto>> GetGenderCountByAge()
         {
+            // Disctionary used here with performance in focus
+            // using lists with adding more objects would reduce performance
             var userStore = new Dictionary<int, AgeGenderDto>();
             var users = await _userRepository.GetUsers();
 

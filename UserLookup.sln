@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLookup.Domain", "src\Us
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLookup.Infrastructure", "src\UserLookup.Infrastructure\UserLookup.Infrastructure.csproj", "{61CE5580-E7ED-4931-B4DF-CD5C3E679BC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLookup.Domain.Tests", "tests\UserLookup.Domain.Tests\UserLookup.Domain.Tests.csproj", "{F7AE9D29-EB09-4842-82AF-F690E1B30E0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{61CE5580-E7ED-4931-B4DF-CD5C3E679BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61CE5580-E7ED-4931-B4DF-CD5C3E679BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61CE5580-E7ED-4931-B4DF-CD5C3E679BC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7AE9D29-EB09-4842-82AF-F690E1B30E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7AE9D29-EB09-4842-82AF-F690E1B30E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7AE9D29-EB09-4842-82AF-F690E1B30E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7AE9D29-EB09-4842-82AF-F690E1B30E0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +48,6 @@ Global
 		{88F954B2-5145-4FC9-9497-3672AC73E06F} = {03F7BDBF-AD6F-403B-811A-030886FBFE6F}
 		{EAE36C70-772A-4F8E-BE62-9EE6413EB3E5} = {03F7BDBF-AD6F-403B-811A-030886FBFE6F}
 		{61CE5580-E7ED-4931-B4DF-CD5C3E679BC0} = {03F7BDBF-AD6F-403B-811A-030886FBFE6F}
+		{F7AE9D29-EB09-4842-82AF-F690E1B30E0C} = {26A391A8-3A28-4AB2-804B-FD1CE26419A4}
 	EndGlobalSection
 EndGlobal
