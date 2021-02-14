@@ -1,28 +1,65 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UserLookup.Domain.Common;
 using UserLookup.Domain.Users;
 using UserLookup.Infrastructure.DataProvider;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace UserLookup.Infrastructure
 {
     public class UserRepository: Repository<User>, IUserRepository
     {
-        public UserRepository() { }
+        private readonly IMemoryCache _cache;
+        const string CacheKey = "UserPayload";
+
+        public UserRepository()
+        {
+            _cache = new MemoryCache(new MemoryCacheOptions());
+        }
+
+        public UserRepository(IMemoryCache memoryCache)
+        {
+            _cache = memoryCache;
+        }
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            IEnumerable<User> users;
+            var (fetched, users) = GetUsersFromCache();
+
+            if (fetched)
+            {
+                return users;
+            }
+
             using (IDataProvider provider = DataProviderFactory.GetProvider("HTTP"))
             {
                 var apiUsers = await provider.QueryData<List<ApiUser>>();
                 users = MapApiUserToDomainUser(apiUsers);
             }
 
+            CacheUsers(users);
             return users;
         }
 
-        // Domain user and API user are kept separate as Domain user can have multiple data source
+        private (bool, IEnumerable<User>) GetUsersFromCache()
+        {
+            if (_cache.TryGetValue(CacheKey, out IEnumerable<User> users))
+            {
+                return (true, users);
+            }
+
+            return (false, users);
+        }
+
+        // For now implemented the in memory caching and for 5 minutes, but based on requirements this can be modified
+        private void CacheUsers(IEnumerable<User> users)
+        {
+            var cacheEntryOptions = new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+            _cache.Set(CacheKey, users, cacheEntryOptions);
+        }
+
+        // Models of User and ApiUuser are kept separate as Domain user can have multiple data source
         private User[] MapApiUserToDomainUser(List<ApiUser> apiUsers)
         {
             User[] tempUsers = new User[apiUsers.Count];

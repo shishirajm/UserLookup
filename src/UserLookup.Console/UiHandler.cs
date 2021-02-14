@@ -16,21 +16,21 @@ namespace UserLookup.Console
     {
         public int GetUserAction()
         {
-            
-            System.Console.WriteLine("Enter Action to perfrom");
-            System.Console.WriteLine("0 to Exit.");
-            System.Console.WriteLine("1 to Get User by Id.");
-            System.Console.WriteLine("2 to get User names by Age.");
-            System.Console.WriteLine("3 to get User count by Age and Gender.");
-            System.Console.WriteLine("Enter the digit");
-            var inputAction = System.Console.ReadLine();
+            DisplayOnUi("###########################");
+            DisplayOnUi("Enter Action to perfrom");
+            DisplayOnUi("0 to Exit.");
+            DisplayOnUi("1 to Get User by Id.");
+            DisplayOnUi("2 to get User names by Age.");
+            DisplayOnUi("3 to get User count by Age and Gender.");
+            DisplayOnUi("Enter the digit");
+            var inputAction = ReadUserInput();
             int selectedAction;
             if (int.TryParse(inputAction, out selectedAction))
             {
                 if (selectedAction >= 0 && selectedAction <= 3)
                     return selectedAction;
                 else
-                    System.Console.WriteLine("Invalid input try again!");
+                    DisplayOnUi("Invalid input try again!");
             }
 
             return -1;
@@ -38,8 +38,8 @@ namespace UserLookup.Console
 
         public long GetUserId()
         {
-            System.Console.WriteLine("Enter the User Id to fetch: ");
-            var inputId = System.Console.ReadLine();
+            DisplayOnUi("Enter the User Id to fetch: ");
+            var inputId = ReadUserInput();
             long selectedId;
             if (long.TryParse(inputId, out selectedId))
             {
@@ -51,8 +51,8 @@ namespace UserLookup.Console
 
         public int GetAgeToQuery()
         {
-            System.Console.WriteLine("Enter the User Age to fetch names: ");
-            var inputAge = System.Console.ReadLine();
+            DisplayOnUi("Enter the User Age to fetch names: ");
+            var inputAge = ReadUserInput();
             int selectedAge;
             if (int.TryParse(inputAge, out selectedAge))
             {
@@ -68,6 +68,11 @@ namespace UserLookup.Console
         public void DisplayOnUi(string display)
         {
             System.Console.WriteLine(display);
+        }
+
+        private string ReadUserInput()
+        {
+            return System.Console.ReadLine();
         }
     }
 }
